@@ -8,38 +8,48 @@ You will fill out this form:
 1. Before the project starts. This is to document your intention. 
 2. Before the demo if there was any deviation from the initial plan.
 
-| Requirement/specification                                                                                 | Points | Partner 1 | Partner 2 | Partner 3 |
-|-----------------------------------------------------------------------------------------------------------|--------|-----------|-----------|-----------|
-| **Presentation**                                                                                          |        |           |           |           |
-| Introduction                                                                                              | 1.5    |           |           |           |
-| Circuit diagram                                                                                           | 1.5    |           |           |           |
-| System architecture diagram                                                                               | 1.5    |           |           |           |
-| High-level flowchart                                                                                      | 1.5    |           |           |           |
-| Professional demo                                                                                         | 3      |           |           |           |
-| **Project Requirements**                                                                                  |        |           |           |           |
-| The system must sample an LM19 temperature sensor.                                                        | 2      |           |           |           |
-| Sample the temperature sensor every 0.5 s.                                                                | 0.5    |           |           |           |
-| The system must calculate a moving average of n temperature values.                                       | 1      |           |           |           |
-| The default window size is n = 3.                                                                         | 0.5    |           |           |           |
-| The window size will be displayed in the bottom-right corner of the LCD.                                  | 0.5    |           |           |           |
-| In the "window size entry" state, the LCD will display "set window size" on the first line of the LCD:    | 0.5    |           |           |           |
-| When unlocked, the user can select a button on the keypad to enter the "window size entry" state.         | 0.5    |           |           |           |
-| The user can enter a single-digit number greater than 0 on the keypad to set the window size.             | 1      |           |           |           |
-| After the user has entered the window size, the system should exit the "window size entry" state.         | 0.5    |           |           |           |
-| In the "pattern number entry" state, the LCD will display "set pattern" on the first line of the LCD:     | 0.5    |           |           |           |
-| When unlocked, the user can select a button on the keypad to enter the "pattern number entry" state.      | 0.5    |           |           |           |
-| In the "pattern number entry" state, the user can enter a number on the keypad to select the LED pattern. | 1      |           |           |           |
-| After the user has entered the pattern number, the system should exit the "pattern number entry" state.   | 0.5    |           |           |           |
-| The temperature will be displayed in the bottom-left corner of the LCD.                                   | 0.5    |           |           |           |
-| The temperature will be displayed in degrees Celsius.                                                     | 2      |           |           |           |
-| The temperature should not be displayed until n samples have been collected.                              | 0.5    |           |           |           |
-| The LED pattern name is displayed on the first line of the LCD:                                           | 0.5    |           |           |           |
-| After n samples have been collected, the new average temperature is displayed after every new sample.     | 0.5    |           |           |           |
-| The pattern name is only displayed when the system is unlocked and not in one of the "user entry" states. | 0.5    |           |           |           |
-| User can select the DS3231 RTC's on-chip temperature sensor.                                              | 2      |           |           |           |
-| User can use the keypad to select different temperature sources.                                          | 2      |           |           |           |
-| User can select the MSP430's on-chip temperature sensor.                                                  | 3      |           |           |           |
-| Total                                                                                                     | 30     |           |           |           |
+| Requirement/specification                                                              | Points | Partner 1 | Partner 2 | Partner 3 |
+|----------------------------------------------------------------------------------------|--------|-----------|-----------|-----------|
+| Introduction                                                                           | 1.5    |           |           |           |
+| Circuit diagram                                                                        | 1.5    |           |           |           |
+| System architecture diagram                                                            | 1.5    |           |           |           |
+| High-level flowchart                                                                   | 1.5    |           |           |           |
+| Professional demo                                                                      | 3      |           |           |           |
+| Collect ambient temperature using the LM19                                             | 2      |           |           |           |
+| Collect data every 0.5 s (proof required)                                              | 1      |           |           |           |
+| Collect the plant’s temperature using the LM92                                         | 6      |           |           |           |
+| Collect data every 0.5 s (proof required)                                              | 1      |           |           |           |
+| Collect the time spent in the present mode of operation using an I2C RTC               | 2      |           |           |           |
+| Collect data every 1 s (proof required)                                                | 1      |           |           |           |
+| Produce a moving average of the temperatures                                           | 5      |           |           |           |
+| Regardless of the selected mode, the Peltier must be turned off after 5 minutes        | 2      |           |           |           |
+| The Peltier device can be turned off                                                   | 2      |           |           |           |
+| The Peltier device can be configured to heat                                           | 2      |           |           |           |
+| The Peltier device can be configured to cool                                           | 2      |           |           |           |
+| The Peltier device can be configured to match the ambient temperature                  | 2      |           |           |           |
+| The Peltier device can be configured to match a temperature set using a rotary encoder | 12     |           |           |           |
+| One step of the rotary encoder is equal to 0.5 C                                       | 5      |           |           |           |
+| Turning the rotary encoder clockwise increases the set temperature                     | 5      |           |           |           |
+| Turning the rotary encoder counter-clockwise decreases the set temperature             | 5      |           |           |           |
+| LCD displays the mode of operation                                                     | 2      |           |           |           |
+| Display  the mode string in the upper-left corner                                      | 1      |           |           |           |
+| Display the ambient temperature                                                        | 2      |           |           |           |
+| Refresh the temperature at least every 2 s                                             | 1      |           |           |           |
+| Display the temperature in the top-right corner                                        | 1      |           |           |           |
+| Display the temperature with a resolution of 0.1 C                                     | 1      |           |           |           |
+| Display the plant temperature                                                          | 2      |           |           |           |
+| Refresh the temperature at least every 2 s                                             | 1      |           |           |           |
+| Display the temperature in the bottom-right corner                                     | 1      |           |           |           |
+| Display the temperature with a resolution of 0.1 C                                     | 1      |           |           |           |
+| Display the window size                                                                | 2      |           |           |           |
+| Display the time spent in the current mode of operation                                | 2      |           |           |           |
+| Refresh the time at least every 1 s                                                    | 1      |           |           |           |
+| Display the seconds in the bottom row of the LCD                                       | 1      |           |           |           |
+| Display up to a 3-digit number                                                         | 1      |           |           |           |
+| When the system is actively heating, the lights should fill to the right               | 2      |           |           |           |
+| When the system is actively cooling, the lights should fill to the left                | 2      |           |           |           |
+| When not actively heating or cooling, the lights should be off                         | 2      |           |           |           |
+| Total                                                                                  | 90     |           |           |           |
 
 
 ## 🚀 Extra credit points
@@ -47,5 +57,7 @@ The extra credit points are allotted to both partners. You don't need to formall
 
 | Extra credit requirement/specification                                                                   | Extra Credit Points |
 |----------------------------------------------------------------------------------------------------------|---------------------|
-| The user can enter a multi-digit number for the window size                                              | 1                   |
-| The user can switch between displaying the temperature in Celsius and Fahrenheit                         | 1                   |
+| The user can select the window size using the keypad                                                     | 1                   |
+| The Peltier device can be configured to match a temperature entered using the keypad                     | 3                   |
+| Display a custom character for the ambient temperature                                                   | 1                   |
+| Display a custom character for the plant temperature                                                     | 1                   |
